@@ -1,26 +1,64 @@
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(400, 200);
   background(255);
   noStroke();
   fill(255, 0, 0); // Red color for dots
-  
-  let gridSize = 10; // Size of each grid cell
-  let rows = 10;    // Number of rows
-  let cols = 10;    // Number of columns
+}
 
-  // Calculate the starting position to center the matrix
-  let startX = (width - gridSize * cols) / 2;
-  let startY = (height - gridSize * rows) / 2;
+function draw() {
+  let dotSize = 20; // Size of each dot
 
-  for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < cols; j++) {
-      // Calculate the position of each dot based on grid cell size and current row/column
-      let x = startX + j * gridSize;
-      let y = startY + i * gridSize;
+  // Define the positions for the letter "N"
+  let nDots = [
+    createVector(50, 50),
+    createVector(50, 90),
+    createVector(50, 130),
+    createVector(70, 70),
+    createVector(90, 90),
+    createVector(110, 110),
+    createVector(130, 50),
+    createVector(130, 90),
+    createVector(130, 130)
+  ];
 
-      // Draw a red dot at the calculated position
-      ellipse(x + gridSize / 2, y + gridSize / 2, 5, 5);
-    }
+  // Define the positions for the letter "O"
+  let oDots = [
+    createVector(180, 90),
+    createVector(180, 50),
+    createVector(200, 50),
+    createVector(220, 50),
+    createVector(240, 90),
+    createVector(240, 130),
+    createVector(220, 130),
+    createVector(200, 130)
+  ];
+
+  // Define the positions for the letter "N" (again)
+  let n2Dots = [
+    createVector(290, 50),
+    createVector(290, 90),
+    createVector(290, 130),
+    createVector(310, 70),
+    createVector(330, 90),
+    createVector(350, 110),
+    createVector(370, 50),
+    createVector(370, 90),
+    createVector(370, 130)
+  ];
+
+  // Draw dots for the letter "N"
+  for (let dot of nDots) {
+    ellipse(dot.x, dot.y, dotSize, dotSize);
+  }
+
+  // Draw dots for the letter "O"
+  for (let dot of oDots) {
+    ellipse(dot.x, dot.y, dotSize, dotSize);
+  }
+
+  // Draw dots for the second letter "N"
+  for (let dot of n2Dots) {
+    ellipse(dot.x, dot.y, dotSize, dotSize);
   }
 
   noLoop(); // Stops draw loop after one frame
